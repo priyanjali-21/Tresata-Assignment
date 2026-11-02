@@ -1,6 +1,0 @@
-pydantic>=2
-beautifulsoup4
-pandas
-requests
-pytest
-jupyter
