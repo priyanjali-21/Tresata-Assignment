@@ -1,0 +1,252 @@
+{
+  "agreement_id": "NORTHWIND-2026-CA",
+  "version": 2,
+  "effective_from": "2026-12-15",
+  "source_file": "data/synthetic_amendment_no1.html",
+  "base_metric": {
+    "section": "1.01 Consolidated EBITDA",
+    "quote": "Consolidated Net Income for such Test Period, plus, without duplication"
+  },
+  "adjustments": [
+    {
+      "clause": "(a)",
+      "label": "interest expense",
+      "direction": "add",
+      "citation": {
+        "section": "1.01 Consolidated EBITDA",
+        "quote": "(a) Consolidated Interest Expense;"
+      }
+    },
+    {
+      "clause": "(b)",
+      "label": "income taxes",
+      "direction": "add",
+      "citation": {
+        "section": "1.01 Consolidated EBITDA",
+        "quote": "(b) provision for taxes based on income, profits or capital;"
+      }
+    },
+    {
+      "clause": "(c)",
+      "label": "D&A",
+      "direction": "add",
+      "citation": {
+        "section": "1.01 Consolidated EBITDA",
+        "quote": "(c) depreciation and amortization expense;"
+      }
+    },
+    {
+      "clause": "(d)",
+      "label": "non-cash charges",
+      "direction": "add",
+      "citation": {
+        "section": "1.01 Consolidated EBITDA",
+        "quote": "(d) non-cash charges, excluding any non-cash charge that represents an accrual of or reserve for cash payments in any future period;"
+      }
+    },
+    {
+      "clause": "(e)",
+      "label": "restructuring, integration, severance",
+      "direction": "add",
+      "cap_group": "G25",
+      "citation": {
+        "section": "1.01 Consolidated EBITDA",
+        "quote": "(e) restructuring, integration and severance costs;"
+      }
+    },
+    {
+      "clause": "(f)",
+      "label": "run-rate cost savings and synergies",
+      "direction": "add",
+      "cap_group": "G25",
+      "conditions": [
+        {
+          "type": "max_realization_months",
+          "value": 24,
+          "citation": {
+            "section": "1.01 Consolidated EBITDA",
+            "quote": "to be realized within 24 months after the date of the related action"
+          }
+        },
+        {
+          "type": "officer_certification",
+          "citation": {
+            "section": "1.01 Consolidated EBITDA",
+            "quote": "are certified by a Responsible Officer in the Compliance Certificate"
+          }
+        },
+        {
+          "type": "analyst_judgment",
+          "description": "contract requires good-faith projection that is reasonably identifiable and factually supportable; code cannot judge this",
+          "citation": {
+            "section": "1.01 Consolidated EBITDA",
+            "quote": "reasonably identifiable and factually supportable"
+          }
+        }
+      ],
+      "citation": {
+        "section": "1.01 Consolidated EBITDA",
+        "quote": "(f) the amount of run-rate cost savings and synergies projected by the Borrower in good faith"
+      }
+    },
+    {
+      "clause": "(g)",
+      "label": "new contracts, pricing and volume",
+      "direction": "add",
+      "cap_group": "G10_PRE",
+      "citation": {
+        "section": "1.01 Consolidated EBITDA",
+        "quote": "(g) adjustments in respect of new contracts and increased pricing or volume under existing customer contracts;"
+      }
+    },
+    {
+      "clause": "(h)",
+      "label": "estimates at completion",
+      "direction": "add",
+      "cap_group": "G10_POST",
+      "citation": {
+        "section": "1.01 Consolidated EBITDA",
+        "quote": "(h) adjustments in respect of changes in estimates at completion on long-term contracts;"
+      }
+    },
+    {
+      "clause": "(i)",
+      "label": "non-cash gains",
+      "direction": "deduct",
+      "citation": {
+        "section": "1.01 Consolidated EBITDA",
+        "quote": "(i) non-cash gains"
+      }
+    },
+    {
+      "clause": "(ii)",
+      "label": "gains on asset sales",
+      "direction": "deduct",
+      "citation": {
+        "section": "1.01 Consolidated EBITDA",
+        "quote": "(ii) gains on sales of assets outside the ordinary course of business"
+      }
+    }
+  ],
+  "cap_groups": [
+    {
+      "id": "G25",
+      "pct": 0.25,
+      "basis": "before_addbacks",
+      "order": 1,
+      "members": [
+        "(e)",
+        "(f)"
+      ],
+      "citation": {
+        "section": "1.01 Consolidated EBITDA",
+        "quote": "pursuant to clauses (e) and (f) for any Test Period shall not exceed 25% of Consolidated EBITDA for such Test Period (determined before giving effect to such add-backs)"
+      }
+    },
+    {
+      "id": "G10_PRE",
+      "pct": 0.1,
+      "basis": "before_addbacks",
+      "order": 2,
+      "members": [
+        "(g)"
+      ],
+      "citation": {
+        "section": "1.01 Consolidated EBITDA",
+        "quote": "pursuant to clause (g) for any Test Period shall not exceed 10% of Consolidated EBITDA for such Test Period (determined before giving effect to such add-backs)"
+      }
+    },
+    {
+      "id": "G10_POST",
+      "pct": 0.1,
+      "basis": "after_addbacks",
+      "order": 3,
+      "members": [
+        "(h)"
+      ],
+      "citation": {
+        "section": "1.01 Consolidated EBITDA",
+        "quote": "pursuant to clause (h) for any Test Period shall not exceed 10% of Consolidated EBITDA for such Test Period (determined after giving effect to such add-backs)"
+      }
+    }
+  ],
+  "debt_components": [
+    {
+      "id": "term_loans",
+      "label": "borrowed money: term loans",
+      "include": true,
+      "citation": {
+        "section": "1.01 Consolidated Total Debt",
+        "quote": "(a) borrowed money"
+      }
+    },
+    {
+      "id": "revolver",
+      "label": "borrowed money: revolver",
+      "include": true,
+      "citation": {
+        "section": "1.01 Consolidated Total Debt",
+        "quote": "(a) borrowed money"
+      }
+    },
+    {
+      "id": "capital_leases",
+      "label": "Capitalized Leases",
+      "include": true,
+      "citation": {
+        "section": "1.01 Consolidated Total Debt",
+        "quote": "(b) obligations under Capitalized Leases"
+      }
+    },
+    {
+      "id": "purchase_money",
+      "label": "purchase money obligations",
+      "include": true,
+      "citation": {
+        "section": "1.01 Consolidated Total Debt",
+        "quote": "(c) purchase money obligations"
+      }
+    },
+    {
+      "id": "undrawn_lc",
+      "label": "undrawn letters of credit",
+      "include": false,
+      "citation": {
+        "section": "1.01 Consolidated Total Debt",
+        "quote": "(x) undrawn letters of credit"
+      }
+    },
+    {
+      "id": "swaps",
+      "label": "Swap Contracts",
+      "include": false,
+      "citation": {
+        "section": "1.01 Consolidated Total Debt",
+        "quote": "(y) obligations under Swap Contracts"
+      }
+    }
+  ],
+  "thresholds": [
+    {
+      "through": "2026-12-31",
+      "max_ratio": 4.5,
+      "citation": {
+        "section": "7.11",
+        "quote": "ending on or before December 31, 2026 to exceed 4.50 to 1.00"
+      }
+    },
+    {
+      "through": null,
+      "max_ratio": 4.25,
+      "citation": {
+        "section": "7.11 (Amendment No. 1)",
+        "quote": "ending thereafter to exceed 4.25 to 1.00"
+      }
+    }
+  ],
+  "interpretations": [
+    "Caps are applied in order G25, G10_PRE, G10_POST. 'Before giving effect to such add-backs' excludes only that group; earlier groups' allowed amounts are included in later bases.",
+    "G10_POST is circular: A <= 0.10 x (B + A), so A <= B / 9."
+  ],
+  "approved_by": "analyst (synthetic approval for prototype)"
+}

@@ -1,0 +1,774 @@
+[
+  {
+    "scenario": "S01 clean quarter",
+    "test_date": "2026-09-30",
+    "net_income": 40000,
+    "items": [
+      {
+        "clause": "(a)",
+        "amount": 18000,
+        "description": "interest"
+      },
+      {
+        "clause": "(b)",
+        "amount": 12000,
+        "description": "taxes"
+      },
+      {
+        "clause": "(c)",
+        "amount": 20000,
+        "description": "D&A"
+      },
+      {
+        "clause": "(d)",
+        "amount": 5000,
+        "description": "non-cash charges"
+      },
+      {
+        "clause": "(i)",
+        "amount": 2000,
+        "description": "non-cash gains"
+      },
+      {
+        "clause": "(e)",
+        "amount": 8000,
+        "description": "plant consolidation"
+      },
+      {
+        "clause": "(g)",
+        "amount": 5000,
+        "description": "new contract"
+      },
+      {
+        "clause": "(h)",
+        "amount": 4000,
+        "description": "EAC change"
+      }
+    ],
+    "debt": {
+      "term_loans": 380000,
+      "revolver": 40000,
+      "capital_leases": 10000,
+      "purchase_money": 5000,
+      "undrawn_lc": 15000,
+      "swaps": 3000
+    },
+    "certificate": {
+      "consolidated_ebitda": 110000,
+      "total_debt": 435000,
+      "total_leverage_ratio": 3.95,
+      "max_ratio_applied": 4.5
+    },
+    "expected": {
+      "status": "PASS",
+      "ebitda": 110000,
+      "flags": []
+    }
+  },
+  {
+    "scenario": "S02 aggregate 25% cap exceeded",
+    "test_date": "2026-09-30",
+    "net_income": 40000,
+    "items": [
+      {
+        "clause": "(a)",
+        "amount": 18000,
+        "description": "interest"
+      },
+      {
+        "clause": "(b)",
+        "amount": 12000,
+        "description": "taxes"
+      },
+      {
+        "clause": "(c)",
+        "amount": 20000,
+        "description": "D&A"
+      },
+      {
+        "clause": "(d)",
+        "amount": 5000,
+        "description": "non-cash charges"
+      },
+      {
+        "clause": "(i)",
+        "amount": 2000,
+        "description": "non-cash gains"
+      },
+      {
+        "clause": "(e)",
+        "amount": 20000,
+        "description": "restructuring"
+      },
+      {
+        "clause": "(f)",
+        "amount": 10000,
+        "description": "procurement synergies",
+        "realization_months": 12,
+        "officer_certified": true
+      },
+      {
+        "clause": "(g)",
+        "amount": 5000,
+        "description": "new contract"
+      },
+      {
+        "clause": "(h)",
+        "amount": 4000,
+        "description": "EAC change"
+      }
+    ],
+    "debt": {
+      "term_loans": 380000,
+      "revolver": 40000,
+      "capital_leases": 10000,
+      "purchase_money": 5000,
+      "undrawn_lc": 15000,
+      "swaps": 3000
+    },
+    "certificate": {
+      "consolidated_ebitda": 132000,
+      "total_debt": 435000,
+      "total_leverage_ratio": 3.3,
+      "max_ratio_applied": 4.5
+    },
+    "expected": {
+      "status": "NEEDS_REVIEW",
+      "ebitda": 125250,
+      "flags": [
+        "cap G25"
+      ]
+    }
+  },
+  {
+    "scenario": "S03 post-add-back (circular) 10% cap",
+    "test_date": "2026-09-30",
+    "net_income": 40000,
+    "items": [
+      {
+        "clause": "(a)",
+        "amount": 18000,
+        "description": "interest"
+      },
+      {
+        "clause": "(b)",
+        "amount": 12000,
+        "description": "taxes"
+      },
+      {
+        "clause": "(c)",
+        "amount": 20000,
+        "description": "D&A"
+      },
+      {
+        "clause": "(d)",
+        "amount": 5000,
+        "description": "non-cash charges"
+      },
+      {
+        "clause": "(i)",
+        "amount": 2000,
+        "description": "non-cash gains"
+      },
+      {
+        "clause": "(e)",
+        "amount": 8000,
+        "description": "plant consolidation"
+      },
+      {
+        "clause": "(g)",
+        "amount": 5000,
+        "description": "new contract"
+      },
+      {
+        "clause": "(h)",
+        "amount": 15000,
+        "description": "EAC change"
+      }
+    ],
+    "debt": {
+      "term_loans": 380000,
+      "revolver": 40000,
+      "capital_leases": 10000,
+      "purchase_money": 5000,
+      "undrawn_lc": 15000,
+      "swaps": 3000
+    },
+    "certificate": {
+      "consolidated_ebitda": 116600,
+      "total_debt": 435000,
+      "total_leverage_ratio": 3.73,
+      "max_ratio_applied": 4.5
+    },
+    "expected": {
+      "status": "NEEDS_REVIEW",
+      "ebitda": 117777.78,
+      "flags": [
+        "cap G10_POST"
+      ]
+    }
+  },
+  {
+    "scenario": "S04 synergy outside 24-month window",
+    "test_date": "2026-09-30",
+    "net_income": 40000,
+    "items": [
+      {
+        "clause": "(a)",
+        "amount": 18000,
+        "description": "interest"
+      },
+      {
+        "clause": "(b)",
+        "amount": 12000,
+        "description": "taxes"
+      },
+      {
+        "clause": "(c)",
+        "amount": 20000,
+        "description": "D&A"
+      },
+      {
+        "clause": "(d)",
+        "amount": 5000,
+        "description": "non-cash charges"
+      },
+      {
+        "clause": "(i)",
+        "amount": 2000,
+        "description": "non-cash gains"
+      },
+      {
+        "clause": "(e)",
+        "amount": 8000,
+        "description": "plant consolidation"
+      },
+      {
+        "clause": "(f)",
+        "amount": 6000,
+        "description": "footprint synergies",
+        "realization_months": 30,
+        "officer_certified": true
+      },
+      {
+        "clause": "(g)",
+        "amount": 5000,
+        "description": "new contract"
+      },
+      {
+        "clause": "(h)",
+        "amount": 4000,
+        "description": "EAC change"
+      }
+    ],
+    "debt": {
+      "term_loans": 380000,
+      "revolver": 40000,
+      "capital_leases": 10000,
+      "purchase_money": 5000,
+      "undrawn_lc": 15000,
+      "swaps": 3000
+    },
+    "certificate": {
+      "consolidated_ebitda": 116000,
+      "total_debt": 435000,
+      "total_leverage_ratio": 3.75,
+      "max_ratio_applied": 4.5
+    },
+    "expected": {
+      "status": "NEEDS_REVIEW",
+      "ebitda": 110000,
+      "flags": [
+        "24-month window"
+      ]
+    }
+  },
+  {
+    "scenario": "S05 synergy without officer certification",
+    "test_date": "2026-09-30",
+    "net_income": 40000,
+    "items": [
+      {
+        "clause": "(a)",
+        "amount": 18000,
+        "description": "interest"
+      },
+      {
+        "clause": "(b)",
+        "amount": 12000,
+        "description": "taxes"
+      },
+      {
+        "clause": "(c)",
+        "amount": 20000,
+        "description": "D&A"
+      },
+      {
+        "clause": "(d)",
+        "amount": 5000,
+        "description": "non-cash charges"
+      },
+      {
+        "clause": "(i)",
+        "amount": 2000,
+        "description": "non-cash gains"
+      },
+      {
+        "clause": "(e)",
+        "amount": 8000,
+        "description": "plant consolidation"
+      },
+      {
+        "clause": "(f)",
+        "amount": 6000,
+        "description": "headcount synergies",
+        "realization_months": 12,
+        "officer_certified": false
+      },
+      {
+        "clause": "(g)",
+        "amount": 5000,
+        "description": "new contract"
+      },
+      {
+        "clause": "(h)",
+        "amount": 4000,
+        "description": "EAC change"
+      }
+    ],
+    "debt": {
+      "term_loans": 380000,
+      "revolver": 40000,
+      "capital_leases": 10000,
+      "purchase_money": 5000,
+      "undrawn_lc": 15000,
+      "swaps": 3000
+    },
+    "certificate": {
+      "consolidated_ebitda": 116000,
+      "total_debt": 435000,
+      "total_leverage_ratio": 3.75,
+      "max_ratio_applied": 4.5
+    },
+    "expected": {
+      "status": "NEEDS_REVIEW",
+      "ebitda": 110000,
+      "flags": [
+        "no Responsible Officer certification"
+      ]
+    }
+  },
+  {
+    "scenario": "S06 borrower ignores amended threshold",
+    "test_date": "2027-03-31",
+    "net_income": 40000,
+    "items": [
+      {
+        "clause": "(a)",
+        "amount": 18000,
+        "description": "interest"
+      },
+      {
+        "clause": "(b)",
+        "amount": 12000,
+        "description": "taxes"
+      },
+      {
+        "clause": "(c)",
+        "amount": 20000,
+        "description": "D&A"
+      },
+      {
+        "clause": "(d)",
+        "amount": 5000,
+        "description": "non-cash charges"
+      },
+      {
+        "clause": "(i)",
+        "amount": 2000,
+        "description": "non-cash gains"
+      },
+      {
+        "clause": "(e)",
+        "amount": 8000,
+        "description": "plant consolidation"
+      },
+      {
+        "clause": "(g)",
+        "amount": 5000,
+        "description": "new contract"
+      },
+      {
+        "clause": "(h)",
+        "amount": 4000,
+        "description": "EAC change"
+      }
+    ],
+    "debt": {
+      "term_loans": 429000,
+      "revolver": 40000,
+      "capital_leases": 10000,
+      "purchase_money": 5000,
+      "undrawn_lc": 15000,
+      "swaps": 3000
+    },
+    "certificate": {
+      "consolidated_ebitda": 110000,
+      "total_debt": 484000,
+      "total_leverage_ratio": 4.4,
+      "max_ratio_applied": 4.5
+    },
+    "expected": {
+      "status": "BREACH",
+      "ebitda": 110000,
+      "flags": [],
+      "max_ratio": 4.25
+    }
+  },
+  {
+    "scenario": "S07 threshold boundary date",
+    "test_date": "2026-12-31",
+    "net_income": 40000,
+    "items": [
+      {
+        "clause": "(a)",
+        "amount": 18000,
+        "description": "interest"
+      },
+      {
+        "clause": "(b)",
+        "amount": 12000,
+        "description": "taxes"
+      },
+      {
+        "clause": "(c)",
+        "amount": 20000,
+        "description": "D&A"
+      },
+      {
+        "clause": "(d)",
+        "amount": 5000,
+        "description": "non-cash charges"
+      },
+      {
+        "clause": "(i)",
+        "amount": 2000,
+        "description": "non-cash gains"
+      },
+      {
+        "clause": "(e)",
+        "amount": 8000,
+        "description": "plant consolidation"
+      },
+      {
+        "clause": "(g)",
+        "amount": 5000,
+        "description": "new contract"
+      },
+      {
+        "clause": "(h)",
+        "amount": 4000,
+        "description": "EAC change"
+      }
+    ],
+    "debt": {
+      "term_loans": 429000,
+      "revolver": 40000,
+      "capital_leases": 10000,
+      "purchase_money": 5000,
+      "undrawn_lc": 15000,
+      "swaps": 3000
+    },
+    "certificate": {
+      "consolidated_ebitda": 110000,
+      "total_debt": 484000,
+      "total_leverage_ratio": 4.4,
+      "max_ratio_applied": 4.5
+    },
+    "expected": {
+      "status": "PASS",
+      "ebitda": 110000,
+      "flags": [],
+      "max_ratio": 4.5
+    }
+  },
+  {
+    "scenario": "S08 borrower omits Capitalized Leases from debt",
+    "test_date": "2026-09-30",
+    "net_income": 40000,
+    "items": [
+      {
+        "clause": "(a)",
+        "amount": 18000,
+        "description": "interest"
+      },
+      {
+        "clause": "(b)",
+        "amount": 12000,
+        "description": "taxes"
+      },
+      {
+        "clause": "(c)",
+        "amount": 20000,
+        "description": "D&A"
+      },
+      {
+        "clause": "(d)",
+        "amount": 5000,
+        "description": "non-cash charges"
+      },
+      {
+        "clause": "(i)",
+        "amount": 2000,
+        "description": "non-cash gains"
+      },
+      {
+        "clause": "(e)",
+        "amount": 8000,
+        "description": "plant consolidation"
+      },
+      {
+        "clause": "(g)",
+        "amount": 5000,
+        "description": "new contract"
+      },
+      {
+        "clause": "(h)",
+        "amount": 4000,
+        "description": "EAC change"
+      }
+    ],
+    "debt": {
+      "term_loans": 380000,
+      "revolver": 40000,
+      "capital_leases": 10000,
+      "purchase_money": 5000,
+      "undrawn_lc": 15000,
+      "swaps": 3000
+    },
+    "certificate": {
+      "consolidated_ebitda": 110000,
+      "total_debt": 425000,
+      "total_leverage_ratio": 3.86,
+      "max_ratio_applied": 4.5
+    },
+    "expected": {
+      "status": "NEEDS_REVIEW",
+      "ebitda": 110000,
+      "flags": []
+    }
+  },
+  {
+    "scenario": "S09 unclassified debt item",
+    "test_date": "2026-09-30",
+    "net_income": 40000,
+    "items": [
+      {
+        "clause": "(a)",
+        "amount": 18000,
+        "description": "interest"
+      },
+      {
+        "clause": "(b)",
+        "amount": 12000,
+        "description": "taxes"
+      },
+      {
+        "clause": "(c)",
+        "amount": 20000,
+        "description": "D&A"
+      },
+      {
+        "clause": "(d)",
+        "amount": 5000,
+        "description": "non-cash charges"
+      },
+      {
+        "clause": "(i)",
+        "amount": 2000,
+        "description": "non-cash gains"
+      },
+      {
+        "clause": "(e)",
+        "amount": 8000,
+        "description": "plant consolidation"
+      },
+      {
+        "clause": "(g)",
+        "amount": 5000,
+        "description": "new contract"
+      },
+      {
+        "clause": "(h)",
+        "amount": 4000,
+        "description": "EAC change"
+      }
+    ],
+    "debt": {
+      "term_loans": 380000,
+      "revolver": 40000,
+      "capital_leases": 10000,
+      "purchase_money": 5000,
+      "undrawn_lc": 15000,
+      "swaps": 3000,
+      "seller_note": 12000
+    },
+    "certificate": {
+      "consolidated_ebitda": 110000,
+      "total_debt": 435000,
+      "total_leverage_ratio": 3.95,
+      "max_ratio_applied": 4.5
+    },
+    "expected": {
+      "status": "NEEDS_REVIEW",
+      "ebitda": 110000,
+      "flags": [
+        "not classified"
+      ]
+    }
+  },
+  {
+    "scenario": "S10 add-back not permitted by the definition",
+    "test_date": "2026-09-30",
+    "net_income": 40000,
+    "items": [
+      {
+        "clause": "(a)",
+        "amount": 18000,
+        "description": "interest"
+      },
+      {
+        "clause": "(b)",
+        "amount": 12000,
+        "description": "taxes"
+      },
+      {
+        "clause": "(c)",
+        "amount": 20000,
+        "description": "D&A"
+      },
+      {
+        "clause": "(d)",
+        "amount": 5000,
+        "description": "non-cash charges"
+      },
+      {
+        "clause": "(i)",
+        "amount": 2000,
+        "description": "non-cash gains"
+      },
+      {
+        "clause": "(e)",
+        "amount": 8000,
+        "description": "plant consolidation"
+      },
+      {
+        "clause": "(g)",
+        "amount": 5000,
+        "description": "new contract"
+      },
+      {
+        "clause": "(h)",
+        "amount": 4000,
+        "description": "EAC change"
+      },
+      {
+        "clause": "(z)",
+        "amount": 3000,
+        "description": "sponsor management fee"
+      }
+    ],
+    "debt": {
+      "term_loans": 380000,
+      "revolver": 40000,
+      "capital_leases": 10000,
+      "purchase_money": 5000,
+      "undrawn_lc": 15000,
+      "swaps": 3000
+    },
+    "certificate": {
+      "consolidated_ebitda": 113000,
+      "total_debt": 435000,
+      "total_leverage_ratio": 3.85,
+      "max_ratio_applied": 4.5
+    },
+    "expected": {
+      "status": "NEEDS_REVIEW",
+      "ebitda": 110000,
+      "flags": [
+        "not a permitted adjustment"
+      ]
+    }
+  },
+  {
+    "scenario": "S11 borrower omits asset-sale gain deduction",
+    "test_date": "2026-09-30",
+    "net_income": 40000,
+    "items": [
+      {
+        "clause": "(a)",
+        "amount": 18000,
+        "description": "interest"
+      },
+      {
+        "clause": "(b)",
+        "amount": 12000,
+        "description": "taxes"
+      },
+      {
+        "clause": "(c)",
+        "amount": 20000,
+        "description": "D&A"
+      },
+      {
+        "clause": "(d)",
+        "amount": 5000,
+        "description": "non-cash charges"
+      },
+      {
+        "clause": "(i)",
+        "amount": 2000,
+        "description": "non-cash gains"
+      },
+      {
+        "clause": "(ii)",
+        "amount": 4000,
+        "description": "gain on sale of hangar"
+      },
+      {
+        "clause": "(e)",
+        "amount": 8000,
+        "description": "plant consolidation"
+      },
+      {
+        "clause": "(g)",
+        "amount": 5000,
+        "description": "new contract"
+      },
+      {
+        "clause": "(h)",
+        "amount": 4000,
+        "description": "EAC change"
+      }
+    ],
+    "debt": {
+      "term_loans": 380000,
+      "revolver": 40000,
+      "capital_leases": 10000,
+      "purchase_money": 5000,
+      "undrawn_lc": 15000,
+      "swaps": 3000
+    },
+    "certificate": {
+      "consolidated_ebitda": 110000,
+      "total_debt": 435000,
+      "total_leverage_ratio": 3.95,
+      "max_ratio_applied": 4.5
+    },
+    "expected": {
+      "status": "NEEDS_REVIEW",
+      "ebitda": 106000,
+      "flags": []
+    }
+  }
+]

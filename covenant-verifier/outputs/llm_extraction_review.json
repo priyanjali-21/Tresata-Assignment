@@ -1,0 +1,204 @@
+{
+  "model": "nvidia/nemotron-3-ultra-550b-a55b:free",
+  "raw": "{\n  \"adjustments\": [\n    {\n      \"clause\": \"(a)\",\n      \"label\": \"Consolidated Interest Expense\",\n      \"direction\": \"add\",\n      \"cap_group\": null,\n      \"conditions\": [],\n      \"citation\": {\n        \"section\": \"Section 1.01\",\n        \"quote\": \"Consolidated Interest Expense\"\n      }\n    },\n    {\n      \"clause\": \"(b)\",\n      \"label\": \"Provision for taxes based on income, profits or capital\",\n      \"direction\": \"add\",\n      \"cap_group\": null,\n      \"conditions\": [],\n      \"citation\": {\n        \"section\": \"Section 1.01\",\n        \"quote\": \"provision for taxes based on income, profits or capital\"\n      }\n    },\n    {\n      \"clause\": \"(c)\",\n      \"label\": \"Depreciation and amortization expense\",\n      \"direction\": \"add\",\n      \"cap_group\": null,\n      \"conditions\": [],\n      \"citation\": {\n        \"section\": \"Section 1.01\",\n        \"quote\": \"depreciation and amortization expense\"\n      }\n    },\n    {\n      \"clause\": \"(d)\",\n      \"label\": \"Non-cash charges (excluding accruals/reserves for future cash payments)\",\n      \"direction\": \"add\",\n      \"cap_group\": null,\n      \"conditions\": [\n        {\n          \"type\": \"analyst_judgment\",\n          \"value\": null,\n          \"description\": \"Exclude any non-cash charge that represents an accrual of or reserve for cash payments in any future period\",\n          \"citation\": {\n            \"section\": \"Section 1.01\",\n            \"quote\": \"excluding any non-cash charge that represents an accrual of or reserve for cash payments in any future period\"\n          }\n        }\n      ],\n      \"citation\": {\n        \"section\": \"Section 1.01\",\n        \"quote\": \"non-cash charges, excluding any non-cash charge that represents an accrual of or reserve for cash payments in any future period\"\n      }\n    },\n    {\n      \"clause\": \"(e)\",\n      \"label\": \"Restructuring, integration and severance costs\",\n      \"direction\": \"add\",\n      \"cap_group\": \"ef_cap\",\n      \"conditions\": [],\n      \"citation\": {\n        \"section\": \"Section 1.01\",\n        \"quote\": \"restructuring, integration and severance costs\"\n      }\n    },\n    {\n      \"clause\": \"(f)\",\n      \"label\": \"Run-rate cost savings and synergies (projected, net of actual benefits, certified)\",\n      \"direction\": \"add\",\n      \"cap_group\": \"ef_cap\",\n      \"conditions\": [\n        {\n          \"type\": \"max_realization_months\",\n          \"value\": 24,\n          \"description\": \"Projected to be realized within 24 months after the date of the related action\",\n          \"citation\": {\n            \"section\": \"Section 1.01\",\n            \"quote\": \"projected by the Borrower in good faith to be realized within 24 months after the date of the related action\"\n          }\n        },\n        {\n          \"type\": \"officer_certification\",\n          \"value\": null,\n          \"description\": \"Certified by a Responsible Officer in the Compliance Certificate\",\n          \"citation\": {\n            \"section\": \"Section 1.01\",\n            \"quote\": \"certified by a Responsible Officer in the Compliance Certificate\"\n          }\n        },\n        {\n          \"type\": \"analyst_judgment\",\n          \"value\": null,\n          \"description\": \"Reasonably identifiable and factually supportable\",\n          \"citation\": {\n            \"section\": \"Section 1.01\",\n            \"quote\": \"provided that such cost savings and synergies are reasonably identifiable and factually supportable\"\n          }\n        }\n      ],\n      \"citation\": {\n        \"section\": \"Section 1.01\",\n        \"quote\": \"the amount of run-rate cost savings and synergies projected by the Borrower in good faith to be realized within 24 months after the date of the related action, net of the amount of actual benefits realized, provided that such cost savings and synergies are reasonably identifiable and factually supportable and are certified by a Responsible Officer in the Compliance Certificate\"\n      }\n    },\n    {\n      \"clause\": \"(g)\",\n      \"label\": \"Adjustments for new contracts and increased pricing or volume under existing customer contracts\",\n      \"direction\": \"add\",\n      \"cap_group\": \"g_cap\",\n      \"conditions\": [],\n      \"citation\": {\n        \"section\": \"Section 1.01\",\n        \"quote\": \"adjustments in respect of new contracts and increased pricing or volume under existing customer contracts\"\n      }\n    },\n    {\n      \"clause\": \"(h)\",\n      \"label\": \"Adjustments for changes in estimates at completion on long-term contracts\",\n      \"direction\": \"add\",\n      \"cap_group\": \"h_cap\",\n      \"conditions\": [],\n      \"citation\": {\n        \"section\": \"Section 1.01\",\n        \"quote\": \"adjustments in respect of changes in estimates at completion on long-term contracts\"\n      }\n    },\n    {\n      \"clause\": \"(i)\",\n      \"label\": \"Non-cash gains\",\n      \"direction\": \"deduct\",\n      \"cap_group\": null,\n      \"conditions\": [],\n      \"citation\": {\n        \"section\": \"Section 1.01\",\n        \"quote\": \"non-cash gains\"\n      }\n    },\n    {\n      \"clause\": \"(i)\",\n      \"label\": \"Gains on sales of assets outside the ordinary course of business\",\n      \"direction\": \"deduct\",\n      \"cap_group\": null,\n      \"conditions\": [],\n      \"citation\": {\n        \"section\": \"Section 1.01\",\n        \"quote\": \"gains on sales of assets outside the ordinary course of business\"\n      }\n    }\n  ],\n  \"cap_groups\": [\n    {\n      \"id\": \"ef_cap\",\n      \"pct\": 25,\n      \"basis\": \"before_addbacks\",\n      \"order\": 1,\n      \"members\": [\"(e)\", \"(f)\"],\n      \"citation\": {\n        \"section\": \"Section 1.01\",\n        \"quote\": \"the aggregate amount added back pursuant to clauses (e) and (f) for any Test Period shall not exceed 25% of Consolidated EBITDA for such Test Period (determined before giving effect to such add-backs)\"\n      }\n    },\n    {\n      \"id\": \"g_cap\",\n      \"pct\": 10,\n      \"basis\": \"before_addbacks\",\n      \"order\": 2,\n      \"members\": [\"(g)\"],\n      \"citation\": {\n        \"section\": \"Section 1.01\",\n        \"quote\": \"the amount added back pursuant to clause (g) for any Test Period shall not exceed 10% of Consolidated EBITDA for such Test Period (determined before giving effect to such add-backs)\"\n      }\n    },\n    {\n      \"id\": \"h_cap\",\n      \"pct\": 10,\n      \"basis\": \"after_addbacks\",\n      \"order\": 3,\n      \"members\": [\"(h)\"],\n      \"citation\": {\n        \"section\": \"Section 1.01\",\n        \"quote\": \"the amount added back pursuant to clause (h) for any Test Period shall not exceed 10% of Consolidated EBITDA for such Test Period (determined after giving effect to such add-backs)\"\n      }\n    }\n  ],\n  \"unresolved\": [\n    \"Defined terms 'Consolidated Net Income', 'Consolidated Interest Expense', 'Test Period', 'Responsible Officer', and 'Compliance Certificate' are referenced but their full definitions are not provided in the text.\",\n    \"The phrase 'without duplication' appears for both additions and subtractions but its precise mechanical application is not specified.\",\n    \"The phrases 'to the extent deducted in arriving at Consolidated Net Income' and 'to the extent included in arriving at Consolidated Net Income' condition the adjustments but the method to determine extent is not detailed.\",\n    \"The interaction between the three cap groups (ef_cap, g_cap, h_cap) and the order of application (especially h_cap being after add-backs) may require clarification on whether ef_cap and g_cap limits are applied before h_cap limit.\"\n  ]\n}",
+  "spec": {
+    "adjustments": [
+      {
+        "clause": "(a)",
+        "label": "Consolidated Interest Expense",
+        "direction": "add",
+        "cap_group": null,
+        "conditions": [],
+        "citation": {
+          "section": "Section 1.01",
+          "quote": "Consolidated Interest Expense"
+        }
+      },
+      {
+        "clause": "(b)",
+        "label": "Provision for taxes based on income, profits or capital",
+        "direction": "add",
+        "cap_group": null,
+        "conditions": [],
+        "citation": {
+          "section": "Section 1.01",
+          "quote": "provision for taxes based on income, profits or capital"
+        }
+      },
+      {
+        "clause": "(c)",
+        "label": "Depreciation and amortization expense",
+        "direction": "add",
+        "cap_group": null,
+        "conditions": [],
+        "citation": {
+          "section": "Section 1.01",
+          "quote": "depreciation and amortization expense"
+        }
+      },
+      {
+        "clause": "(d)",
+        "label": "Non-cash charges (excluding accruals/reserves for future cash payments)",
+        "direction": "add",
+        "cap_group": null,
+        "conditions": [
+          {
+            "type": "analyst_judgment",
+            "value": null,
+            "description": "Exclude any non-cash charge that represents an accrual of or reserve for cash payments in any future period",
+            "citation": {
+              "section": "Section 1.01",
+              "quote": "excluding any non-cash charge that represents an accrual of or reserve for cash payments in any future period"
+            }
+          }
+        ],
+        "citation": {
+          "section": "Section 1.01",
+          "quote": "non-cash charges, excluding any non-cash charge that represents an accrual of or reserve for cash payments in any future period"
+        }
+      },
+      {
+        "clause": "(e)",
+        "label": "Restructuring, integration and severance costs",
+        "direction": "add",
+        "cap_group": "ef_cap",
+        "conditions": [],
+        "citation": {
+          "section": "Section 1.01",
+          "quote": "restructuring, integration and severance costs"
+        }
+      },
+      {
+        "clause": "(f)",
+        "label": "Run-rate cost savings and synergies (projected, net of actual benefits, certified)",
+        "direction": "add",
+        "cap_group": "ef_cap",
+        "conditions": [
+          {
+            "type": "max_realization_months",
+            "value": 24,
+            "description": "Projected to be realized within 24 months after the date of the related action",
+            "citation": {
+              "section": "Section 1.01",
+              "quote": "projected by the Borrower in good faith to be realized within 24 months after the date of the related action"
+            }
+          },
+          {
+            "type": "officer_certification",
+            "value": null,
+            "description": "Certified by a Responsible Officer in the Compliance Certificate",
+            "citation": {
+              "section": "Section 1.01",
+              "quote": "certified by a Responsible Officer in the Compliance Certificate"
+            }
+          },
+          {
+            "type": "analyst_judgment",
+            "value": null,
+            "description": "Reasonably identifiable and factually supportable",
+            "citation": {
+              "section": "Section 1.01",
+              "quote": "provided that such cost savings and synergies are reasonably identifiable and factually supportable"
+            }
+          }
+        ],
+        "citation": {
+          "section": "Section 1.01",
+          "quote": "the amount of run-rate cost savings and synergies projected by the Borrower in good faith to be realized within 24 months after the date of the related action, net of the amount of actual benefits realized, provided that such cost savings and synergies are reasonably identifiable and factually supportable and are certified by a Responsible Officer in the Compliance Certificate"
+        }
+      },
+      {
+        "clause": "(g)",
+        "label": "Adjustments for new contracts and increased pricing or volume under existing customer contracts",
+        "direction": "add",
+        "cap_group": "g_cap",
+        "conditions": [],
+        "citation": {
+          "section": "Section 1.01",
+          "quote": "adjustments in respect of new contracts and increased pricing or volume under existing customer contracts"
+        }
+      },
+      {
+        "clause": "(h)",
+        "label": "Adjustments for changes in estimates at completion on long-term contracts",
+        "direction": "add",
+        "cap_group": "h_cap",
+        "conditions": [],
+        "citation": {
+          "section": "Section 1.01",
+          "quote": "adjustments in respect of changes in estimates at completion on long-term contracts"
+        }
+      },
+      {
+        "clause": "(i)",
+        "label": "Non-cash gains",
+        "direction": "deduct",
+        "cap_group": null,
+        "conditions": [],
+        "citation": {
+          "section": "Section 1.01",
+          "quote": "non-cash gains"
+        }
+      },
+      {
+        "clause": "(i)",
+        "label": "Gains on sales of assets outside the ordinary course of business",
+        "direction": "deduct",
+        "cap_group": null,
+        "conditions": [],
+        "citation": {
+          "section": "Section 1.01",
+          "quote": "gains on sales of assets outside the ordinary course of business"
+        }
+      }
+    ],
+    "cap_groups": [
+      {
+        "id": "ef_cap",
+        "pct": 25,
+        "basis": "before_addbacks",
+        "order": 1,
+        "members": [
+          "(e)",
+          "(f)"
+        ],
+        "citation": {
+          "section": "Section 1.01",
+          "quote": "the aggregate amount added back pursuant to clauses (e) and (f) for any Test Period shall not exceed 25% of Consolidated EBITDA for such Test Period (determined before giving effect to such add-backs)"
+        }
+      },
+      {
+        "id": "g_cap",
+        "pct": 10,
+        "basis": "before_addbacks",
+        "order": 2,
+        "members": [
+          "(g)"
+        ],
+        "citation": {
+          "section": "Section 1.01",
+          "quote": "the amount added back pursuant to clause (g) for any Test Period shall not exceed 10% of Consolidated EBITDA for such Test Period (determined before giving effect to such add-backs)"
+        }
+      },
+      {
+        "id": "h_cap",
+        "pct": 10,
+        "basis": "after_addbacks",
+        "order": 3,
+        "members": [
+          "(h)"
+        ],
+        "citation": {
+          "section": "Section 1.01",
+          "quote": "the amount added back pursuant to clause (h) for any Test Period shall not exceed 10% of Consolidated EBITDA for such Test Period (determined after giving effect to such add-backs)"
+        }
+      }
+    ],
+    "unresolved": [
+      "Defined terms 'Consolidated Net Income', 'Consolidated Interest Expense', 'Test Period', 'Responsible Officer', and 'Compliance Certificate' are referenced but their full definitions are not provided in the text.",
+      "The phrase 'without duplication' appears for both additions and subtractions but its precise mechanical application is not specified.",
+      "The phrases 'to the extent deducted in arriving at Consolidated Net Income' and 'to the extent included in arriving at Consolidated Net Income' condition the adjustments but the method to determine extent is not detailed.",
+      "The interaction between the three cap groups (ef_cap, g_cap, h_cap) and the order of application (especially h_cap being after add-backs) may require clarification on whether ef_cap and g_cap limits are applied before h_cap limit."
+    ]
+  }
+}
